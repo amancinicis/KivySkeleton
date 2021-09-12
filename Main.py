@@ -8,6 +8,7 @@ from kivy.uix.screenmanager import ScreenManager, NoTransition
 from SplashScreen import SplashScreen
 from SettingsScreen import SettingsScreen
 
+
 class MainLayout(BoxLayout):
     """
     Holds the main application layout
