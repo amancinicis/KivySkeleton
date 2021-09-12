@@ -2,6 +2,8 @@ from kivy.config import ConfigParser
 from kivy.uix.screenmanager import Screen
 from kivy.uix.settings import Settings
 
+# Refer to https://kivy.org/doc/stable/api-kivy.uix.settings.html for more information
+
 
 class SettingsScreen(Screen):
     def __init__(self, root, **kwargs):
@@ -17,7 +19,9 @@ class AppSettings(Settings):
         self.root = root
         self.config = ConfigParser()
         self.config.read('defaultconfig.ini')
-        self.add_json_panel('Settings', self.config, 'settings.json')
+        self.add_kivy_panel()
+        self.add_json_panel('Custom Settings', self.config, 'settings.json')
+
 
     def on_close(self, *args):
         self.root.to_splash()
