@@ -18,8 +18,10 @@ class AppSettings(Settings):
         super(AppSettings, self).__init__(**kwargs)
         self.root = root
         self.config = ConfigParser()
-        self.config.read('defaultconfig.ini')
         self.add_kivy_panel()
+        # Sample config file
+        self.config.read('defaultconfig.ini')
+        #Adds this sample config file
         self.add_json_panel('Custom Settings', self.config, 'settings.json')
 
 
