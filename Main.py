@@ -17,14 +17,14 @@ class MainLayout(BoxLayout):
         self.add_widget(self.navigation)
         self.sm = ScreenManager()
         self.add_widget(self.sm)
-        self.sm.add_widget(CounterScreen())
+        self.sm.add_widget(SplashScreen())
         self.sm.add_widget(SettingsScreen())
         self.buttons = []
         self.buttons.append(Button(text="Settings"))
         self.buttons[-1].bind(on_release=self.to_settings)
         self.navigation.add_widget(self.buttons[-1])
         self.buttons.append(Button(text="Counters"))
-        self.buttons[-1].bind(on_release=self.to_counters)
+        self.buttons[-1].bind(on_release=self.to_splash())
         self.navigation.add_widget(self.buttons[-1])
         self.buttons.append(Button(text="Quit"))
         self.buttons[-1].bind(on_release=self.quit_app)
@@ -38,13 +38,13 @@ class MainLayout(BoxLayout):
         """
         self.sm.current = 'settings'
 
-    def to_counters(self, *args):
+    def to_splash(self, *args):
         """
         Navigation to the counters screen
         :param args:
         :return:
         """
-        self.sm.current = 'counters'
+        self.sm.current = 'splash'
 
     def quit_app(self, *args):
         """
