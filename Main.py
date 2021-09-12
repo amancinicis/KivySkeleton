@@ -3,8 +3,10 @@ from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.button import Button
 from kivy.uix.label import Label
-from kivy.uix.screenmanager import ScreenManager
+from kivy.uix.screenmanager import ScreenManager, NoTransition
 
+from SplashScreen import SplashScreen
+from SettingsScreen import SettingsScreen
 
 class MainLayout(BoxLayout):
     """
@@ -16,6 +18,7 @@ class MainLayout(BoxLayout):
         self.navigation = NavigationLayout()
         self.add_widget(self.navigation)
         self.sm = ScreenManager()
+        self.sm.transition = NoTransition()
         self.add_widget(self.sm)
         self.sm.add_widget(SplashScreen())
         self.sm.add_widget(SettingsScreen())
@@ -23,8 +26,8 @@ class MainLayout(BoxLayout):
         self.buttons.append(Button(text="Settings"))
         self.buttons[-1].bind(on_release=self.to_settings)
         self.navigation.add_widget(self.buttons[-1])
-        self.buttons.append(Button(text="Counters"))
-        self.buttons[-1].bind(on_release=self.to_splash())
+        self.buttons.append(Button(text="Splash"))
+        self.buttons[-1].bind(on_release=self.to_splash)
         self.navigation.add_widget(self.buttons[-1])
         self.buttons.append(Button(text="Quit"))
         self.buttons[-1].bind(on_release=self.quit_app)
