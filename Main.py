@@ -67,7 +67,7 @@ class NavigationLayout(BoxLayout):
         self.orientation = "vertical"
         self.size_hint_x = 0.3
         super(NavigationLayout, self).__init__(**kwargs)
-        self.label = Label(text="Navigation")
+        self.label = Label(text="Navigation Panel")
         self.add_widget(self.label)
 
 
