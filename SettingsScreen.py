@@ -7,6 +7,7 @@ class SettingsScreen(Screen):
     def __init__(self, **kwargs):
         super(SettingsScreen, self).__init__(**kwargs)
         self.name = "settings"
+        self.add_widget(AppSettings())
 
 
 class AppSettings(Settings):
