@@ -22,7 +22,7 @@ class MainLayout(BoxLayout):
         self.sm.transition = NoTransition()
         self.add_widget(self.sm)
         self.sm.add_widget(SplashScreen())
-        self.sm.add_widget(SettingsScreen())
+        self.sm.add_widget(SettingsScreen(self))
         self.buttons = []
         self.buttons.append(Button(text="Settings"))
         self.buttons[-1].bind(on_release=self.to_settings)
